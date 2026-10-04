@@ -3,9 +3,9 @@ private amount: number
 private isPaid: boolean
 
   constructor(amount: number) {
-  if (amount <= 0) {
-    throw new Error('Amount must be greater than 0')
-  }
+    if (!Number.isFinite(amount) || amount <= 0) {
+      throw new Error('Amount must be greater than 0')
+    }
     this.amount = amount
     this.isPaid = false
   }
