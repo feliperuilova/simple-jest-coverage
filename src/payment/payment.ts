@@ -11,9 +11,9 @@ private isPaid: boolean
   }
 
   applyDiscount(percentage: number): void {
-if (percentage < 0 || percentage > 100 || this.isPaid )  {
-  return
-}
+    if (!Number.isFinite(percentage) || percentage < 0 || percentage > 100 || this.isPaid) {
+      return
+    }
 this.amount = this.amount * (1 - percentage / 100)
   }
 
